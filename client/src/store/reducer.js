@@ -1,9 +1,12 @@
+// import Participants from '../RoomPage/ParticipantsSection/Participants';
 import Actions from './actions'
 const initState = {
     identity: '',
     isRoomHost: false,
     connectOnlyWithAudio: false,
-    roomId: null
+    roomId: null,
+    showOverlay:true,
+    Participants:[]
 };
 
 
@@ -29,6 +32,16 @@ const reducer = (state = initState, action) => {
                 ...state,
                 identity: action.identity
             }
+            case Actions.SET_SHOW_OVERLAY:
+                return {
+                    ...state,
+                    showOverlay:action.showOverlay,
+                };
+                case Actions.SET_PARTICIPANTS:
+                    return {
+                        ...state,
+                        Participants:Actions.Participants,
+                    };
         default:
             return state;
     }
